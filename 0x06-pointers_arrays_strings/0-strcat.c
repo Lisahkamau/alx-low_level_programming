@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 /**
-   * _strcat - function that  appends the src string to the dest string.
-    *  @dest: destination string pointer
-     *  @src: source string pointer
-      *  Return: pointer to destination string
-       */
+ * _strcat - function that  appends the src string to the dest string.
+ *  @dest: destination string pointer
+ *  @src: source string pointer
+ *  Return: pointer to destination string
+ */
 
 char *_strcat(char *dest, char *src)
 {
