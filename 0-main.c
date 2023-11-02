@@ -1,5 +1,5 @@
-#include "main.h"
 #include <stdio.h>
+#include "dog.h"
 
 /**
    * main - check the code
@@ -8,15 +8,11 @@
       */
 int main(void)
 {
-	    char s1[98] = "Hello ";
-	        char s2[] = "World!\n";
-		    char *ptr;
+	    struct dog my_dog;
 
-		        printf("%s\n", s1);
-			    printf("%s", s2);
-			        ptr = _strcat(s1, s2);
-				    printf("%s", s1);
-				        printf("%s", s2);
-					    printf("%s", ptr);
-					        return (0);
+	        my_dog.name = "Poppy";
+		    my_dog.age = 3.5;
+		        my_dog.owner = "Bob";
+			    printf("My name is %s, and I am %.1f :) - Woof!\n", my_dog.name, my_dog.age);
+			        return (0);
 }
