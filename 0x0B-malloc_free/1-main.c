@@ -3,7 +3,6 @@
 #include <stdlib.h>
 
 /**
-<<<<<<< HEAD
    * main - check the code for ALX School students.
     *
      * Return: Always 0.
@@ -21,23 +20,4 @@ int main(void)
 		        printf("%s\n", s);
 			    free(s);
 			        return (0);
-=======
- * main - check the code for ALX School students.
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    char *s;
-
-    s =  _strcmp("ALX SE");
-    if (s == NULL)
-    {
-        printf("failed to allocate memory\n");
-        return (1);
-    }
-    printf("%s\n", s);
-    free(s);
-    return (0);
->>>>>>> 934accea11856cfc6206e7b38e3239be1992101a
 }
