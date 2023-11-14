@@ -1,46 +1,44 @@
 #include <stdlib.h>
 
 /**
- * str_concat - Concatenates two strings.
- * @s1: The first string.
- * @s2: The second string.
+ * alloc_grid - Allocates memory for a 2D array of integers.
+ * @width: The width of the 2D array.
+ * @height: The height of the 2D array.
  *
- * Return: A pointer to the concatenated string, or NULL on failure.
+ * Return: A pointer to the newly allocated 2D array, or NULL on failure.
  *
- * Description: Allocates memory to store the concatenated result of s1 and s2.
- * If either s1 or s2 is NULL, it is treated as an empty string. The function
- * returns a pointer to the newly allocated space, or NULL if the allocation
- * fails.
+ * Description:
+ * The function allocates memory for a 2D array of integers with
+ * the specified width and height. Each element of  grid is initialized to 0.
+ * If either width or height is 0 or negative, the function returns NULL. If
+ * memory allocation fails, it also returns NULL.
  */
-char *str_concat(char *s1, char *s2)
+int **alloc_grid(int width, int height)
 {
-    char *concatenated;
-    int len1, len2, i, j;
+	int **grid;
+	int i, j;
 
-    if (s1 == NULL)
-        s1 = "";
-    if (s2 == NULL)
-        s2 = "";
+	if (width <= 0 || height <= 0)
+		return (NULL);
 
-    for (len1 = 0; s1[len1] != '\0'; len1++)
-        ;
+	grid = malloc(height * sizeof(int *));
+	if (grid == NULL)
+		return (NULL);
 
-    for (len2 = 0; s2[len2] != '\0'; len2++)
-        ;
+	for (i = 0; i < height; i++)
+	{
+		grid[i] = malloc(width * sizeof(int));
+		if (grid[i] == NULL)
+		{
+			for (j = 0; j < i; j++)
+				free(grid[j]);
+			free(grid);
+			return (NULL);
+		}
+		for (j = 0; j < width; j++)
+			grid[i][j] = 0;
+	}
 
-    concatenated = malloc((len1 + len2 + 1) * sizeof(char));
-
-    if (concatenated == NULL)
-        return (NULL);
-
-    for (i = 0; i < len1; i++)
-        concatenated[i] = s1[i];
-
-    for (j = 0; j < len2; j++)
-        concatenated[i + j] = s2[j];
-
-    concatenated[i + j] = '\0';
-
-    return (concatenated);
+	return (grid);
 }
 
